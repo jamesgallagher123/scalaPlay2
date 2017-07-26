@@ -31,14 +31,12 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
   }
 
   def loadDeleteItem = Action { implicit request =>
-    Ok(views.html.deleteItem(Item.items, Item.deleteItemForm))
+    Ok(views.html.deleteItem(Item.items))
   }
 
-  def deleteItem = Action{ implicit request =>
+  def deleteItem(name: String) = Action{ implicit request =>
 
-
-
-    Redirect(routes.Application.index())
+    Ok("Deleted")
   }
 
 

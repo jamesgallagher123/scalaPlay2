@@ -26,10 +26,6 @@ object Item {
     )(Item.apply)(Item.unapply)
   )
 
-  val deleteItemForm = Form(
-      "select" -> Forms.list(nonEmptyText)
-  )
-
   val items = ArrayBuffer(
     Item("name1", "description1", "maker1", 1, 2, 0, "seller1"),
     Item("name2", "description2", "maker2", 1, 2, 0, "seller2"),

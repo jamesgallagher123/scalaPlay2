@@ -1,13 +1,15 @@
-@import scala.collection.mutable.ArrayBuffer
-@(items: ArrayBuffer[Item], form: Form[Item])(implicit messages: Messages)
+@(items: Seq[Item])(implicit messages: Messages)
 
 @main("Items") {
 
     <h1>Delete Item</h1>
 
+    <select>
+        @for(i <- 0 to items.size - 1) {
+            <option>@items(i).name</option>
+        }
+    </select>
     @helper.form(routes.Application.deleteItem()) {
-        @helper.select(form("name", 'id -> 'SomeId')
-        <input type="submit" value="Delete">
+        <button type="submit">Delete</button>
     }
-
 }
