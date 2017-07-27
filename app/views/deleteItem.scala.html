@@ -1,15 +1,16 @@
-@(items: Seq[Item])(implicit messages: Messages)
+@(items: Seq[Item], id: Int)(implicit messages: Messages)
 
 @main("Items") {
 
     <h1>Delete Item</h1>
 
-    <select>
         @for(i <- 0 to items.size - 1) {
-            <option>@items(i).name</option>
+                <a href="?id=@i">@items(i).name</a>
         }
-    </select>
-    @helper.form(routes.Application.deleteItem()) {
+
+
+    <form action="@routes.Application.deleteItem(id)" method="post">
         <button type="submit">Delete</button>
-    }
+    </form>
+
 }

@@ -1,7 +1,5 @@
 package models
 
-import java.awt.image.BufferedImage
-
 import play.api.data._
 import play.api.data.Forms._
 

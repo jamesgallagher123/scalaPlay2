@@ -30,14 +30,33 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
 
   }
 
-  def loadDeleteItem = Action { implicit request =>
-    Ok(views.html.deleteItem(Item.items))
+  def loadDeleteItem(id: Int) = Action { implicit request =>
+    Ok(views.html.deleteItem(Item.items, id))
   }
 
-  def deleteItem(name: String) = Action{ implicit request =>
-
-    Ok("Deleted")
+  def deleteItem(id: Int) = Action{ implicit request =>
+    Item.items.remove(id)
+    Redirect(routes.Application.loadDeleteItem(id))
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
